@@ -26,11 +26,25 @@ public class GameControl {
 		this.gameService=gameService;
 	}
 
-	public void test(int keyCode) {
-		this.gameService.gameTest(keyCode);
-		//swing 重新打印页面
-		this.jPanelGame.repaint();
-		
+	public void keyUp() {
+		this.gameService.keyUp();
+		this.jPanelGame.repaint();		
 	}
+
+	public void keyDown() {
+		this.gameService.keyDown();
+		this.jPanelGame.repaint();
+	}
+
+	public void keyLeft() {
+		this.gameService.keyLeft();
+		this.jPanelGame.repaint();
+	}
+
+	public void keyRight() {
+		this.gameService.keyRight();
+		this.jPanelGame.repaint();
+	}
+
 
 }

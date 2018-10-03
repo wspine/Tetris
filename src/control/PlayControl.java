@@ -19,8 +19,22 @@ public class PlayControl extends KeyAdapter {
 	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
-		this.gamecontrol.test(e.getKeyCode());
-
+		//TODO
+		switch(e.getKeyCode()) {
+		case KeyEvent.VK_UP:
+			this.gamecontrol.keyUp();
+		break;
+		case KeyEvent.VK_DOWN:
+			this.gamecontrol.keyDown();
+		break;
+		case KeyEvent.VK_LEFT:
+			this.gamecontrol.keyLeft();
+		break;
+		case KeyEvent.VK_RIGHT:
+			this.gamecontrol.keyRight();
+		break;
+		default:break;	
+		}
 	}
 
 }

@@ -1,5 +1,6 @@
 package dto;
 
+import java.awt.Point;
 import java.util.List;
 
 import entity.DropType;
@@ -18,7 +19,7 @@ public class GameDto {
 	/**
 	 * 堆积矩阵
 	 */
-	private boolean[][] stackedSquare=new boolean[18][10]; 
+	private boolean[][] stackedMap=new boolean[18][10]; 
 	/**
 	 * 下落形状
 	 */
@@ -39,6 +40,18 @@ public class GameDto {
 	 * 当前移除的行数
 	 */
 	private int nowRemoveLine;
+	
+	/**
+	 * 将下落的到底部的类型的数据帮定到map
+	 */
+	public void dropTypeBindInMap() {
+		Point[] ps=this.dropType.getActPoints();
+		for (int i = 0; i < ps.length; i++) {
+			stackedMap[ps[i].x][ps[i].y]=true;
+		}
+	}
+	
+	
 	public List<Player> getDbRecode() {
 		return dbRecode;
 	}
@@ -51,11 +64,12 @@ public class GameDto {
 	public void setDiskRecode(List<Player> diskRecode) {
 		this.diskRecode = diskRecode;
 	}
-	public boolean[][] getStackedSquare() {
-		return stackedSquare;
+	
+	public boolean[][] getStackedMap() {
+		return stackedMap;
 	}
-	public void setStackedSquare(boolean[][] stackedSquare) {
-		this.stackedSquare = stackedSquare;
+	public void setStackedMap(boolean[][] stackedMap) {
+		this.stackedMap = stackedMap;
 	}
 	public DropType getDropType() {
 		return dropType;
