@@ -21,21 +21,25 @@ public class LayerGame extends Layer {
 	public void paint(Graphics g) {
 		//刷新外边框
 		this.createCheek(g);
-		//画下类型
+		//画下类型		
+		this.drawSingleCube(g, 30, 40, 1);
 		Point[] points=this.dto.getDropType().getActPoints();		
 		for(int i=0;i<points.length;i++) {
 			drawSingleCube(g, points[i].x, points[i].y, 1);
 		}
-		//画堆积map
-		
-		
-		
+		//TODO 这里画堆积map时算法不好，因为每移动一步就要刷新整个地图，能否实现只是刷新局部
+		boolean map[][]=this.dto.getStackedMap();
+		for (int y = 0; y < map[0].length; y++) {
+			for(int x=0;x<map.length;x++) {
+				if(map[x][y]) drawSingleCube(g, x, y,0);
+			}
+		}		
 	}
 	
-	private void drawSingleCube(Graphics g,int x,int y,int  colorType ) {
-		g.drawImage(IMG, this.x+SIZE+x*SQU_SIZE, this.y+SIZE+y*SQU_SIZE,
-				this.x+SIZE+x*SQU_SIZE+SQU_SIZE, this.y+SIZE+y*SQU_SIZE+SQU_SIZE,
-				SQU_SIZE*colorType, 0, SQU_SIZE*(colorType), SQU_SIZE, null);
+	private void drawSingleCube(Graphics g,int pX,int pY,int  colorType ) {
+		g.drawImage(IMG, this.x+SIZE+pX*SQU_SIZE, this.y+SIZE+pY*SQU_SIZE,
+				this.x+SIZE+pX*SQU_SIZE+SQU_SIZE, this.y+SIZE+pY*SQU_SIZE+SQU_SIZE,
+				SQU_SIZE*colorType, 0, SQU_SIZE*(colorType+1), SQU_SIZE, null);
 	}
 
 }

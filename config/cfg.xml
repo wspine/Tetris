@@ -14,6 +14,50 @@
 	
 	</system>
 	<data>
+		<types>
+			<type code="0">
+				<point x="4" y="0"></point>
+				<point x="3" y="0"></point>
+				<point x="5" y="0"></point>
+				<point x="5" y="1"></point>
+			</type>
+			<type code="1">
+				<point x="4" y="0"></point>
+				<point x="3" y="0"></point>
+				<point x="5" y="0"></point>
+				<point x="4" y="1"></point>
+			</type>
+			<type code="2">
+				<point x="4" y="0"></point>
+				<point x="3" y="0"></point>
+				<point x="5" y="0"></point>
+				<point x="3" y="1"></point>
+			</type>
+			<type code="3">
+				<point x="4" y="0"></point>
+				<point x="3" y="0"></point>
+				<point x="4" y="1"></point>
+				<point x="5" y="1"></point>
+			</type>
+			<type code="4">
+				<point x="4" y="0"></point>
+				<point x="5" y="0"></point>
+				<point x="4" y="1"></point>
+				<point x="3" y="1"></point>
+			</type>			
+			<type code="5">
+				<point x="4" y="0"></point>
+				<point x="3" y="0"></point>
+				<point x="5" y="0"></point>
+				<point x="6" y="0"></point>
+			</type>
+			<type code="6">
+				<point x="4" y="0"></point>
+				<point x="3" y="0"></point>
+				<point x="4" y="1"></point>
+				<point x="3" y="1"></point>
+			</type>
+		</types>
 	
 	</data>
 </game>

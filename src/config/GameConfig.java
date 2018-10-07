@@ -1,6 +1,7 @@
 package config;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.dom4j.Document;
@@ -95,9 +96,41 @@ public class GameConfig {
 		
 	}
 
+	
+
+	/**
+	 * 下落类型的数据
+	 */
+	List<List<Integer>> dropTypeData=new ArrayList<>(7);	
+	public List<List<Integer>> getDropTypeData() {
+		return dropTypeData;
+	}
+	/**
+	 * 提取下落类型所需要的数据
+	 * @param data
+	 */
 	private void setDataConfig(Element data) {
-		// TODO Auto-generated method stub
-		
+		Element types=data.element("types");		
+		List<Element> type=types.elements();
+		for(Element t:type) {
+			List<Integer> d=new ArrayList<>(8);
+ 			for(Element ele:(List<Element>)t.elements()) {
+				d.add(Integer.parseInt(ele.attributeValue("x")));
+				d.add(Integer.parseInt(ele.attributeValue("y")));
+			}
+ 			dropTypeData.add(d);
+		}
 	}
 	
+//	public static void main(String[] args) throws DocumentException {
+//		System.out.println("开始");
+//		
+//		List<List<Integer>> drop=new GameConfig().dropTypeData;		
+//		for(List<Integer> list:drop) {
+//			for(Integer d:list) {
+//				System.out.print(d+" ");
+//			}
+//			System.out.println();
+//		}
+//	}
 }

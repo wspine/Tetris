@@ -1,7 +1,5 @@
 package service;
 
-import java.awt.Point;
-
 import dto.GameDto;
 import entity.DropType;
 
@@ -24,6 +22,9 @@ public class GameService {
 	public void keyDown() {
 		if(!this.dto.getDropType().isReachBottom()) {
 			this.dto.getDropType().moveDown();
+		}else {
+			this.dto.dropTypeBindInMap();
+			this.dto.getDropType().chooseDropType();			
 		}		
 	}
 

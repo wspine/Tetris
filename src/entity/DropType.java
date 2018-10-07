@@ -1,27 +1,42 @@
 package entity;
 
 import java.awt.Point;
+import java.util.List;
+import java.util.Random;
+
+import config.ConfigFactory;
 
 public class DropType {
 
 	
 	private Point[] actPoints;
-	
+	private static  List<List<Integer>> dropTypeData;
+	private int typeCode;
+	static {
+		dropTypeData=ConfigFactory.getGameConfig().getDropTypeData();		
+	}
 	
 	public DropType() {
-		actPoints=new Point[] {
-		new Point(4, 0),
-		new Point(3, 0),		
-		new Point(5, 0),
-		new Point(5, 1)		
-		};
+		chooseDropType();
 	}
 
 	public Point[] getActPoints() {
 		return actPoints;
+	}	
+	
+	/**
+	 * 随机选择下落的类型
+	 */
+	public void chooseDropType() {		
+		Random random=new Random();		
+		typeCode=random.nextInt(7);	
+		List<Integer> list=dropTypeData.get(typeCode);
+		
+		actPoints=new Point[4];		
+		for(int i=0;i<actPoints.length;i++) {
+			actPoints[i]=new Point(list.get(i<<1),list.get(i<<1+1));			
+		}		
 	}
-	
-	
 	
 	/**
 	 * 顺时针旋转90度角

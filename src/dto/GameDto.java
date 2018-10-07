@@ -19,7 +19,7 @@ public class GameDto {
 	/**
 	 * ¶Ñ»ı¾ØÕó
 	 */
-	private boolean[][] stackedMap=new boolean[18][10]; 
+	private boolean[][] stackedMap=new boolean[10][18]; 
 	/**
 	 * ÏÂÂäĞÎ×´
 	 */
@@ -46,7 +46,7 @@ public class GameDto {
 	 */
 	public void dropTypeBindInMap() {
 		Point[] ps=this.dropType.getActPoints();
-		for (int i = 0; i < ps.length; i++) {
+		for (int i = 0; i < ps.length; i++) {			
 			stackedMap[ps[i].x][ps[i].y]=true;
 		}
 	}
