@@ -24,7 +24,8 @@ public class LayerGame extends Layer {
 		//刷新外边框
 		this.createCheek(g);
 		//画下落类型		
-		this.drawDropType(g,this.dto.getDropType().getTypeCode()+1);
+		int dropType=this.dto.getDropType().getTypeCode();
+		this.drawDropType(g,dropType+1);
 		//TODO 这里画堆积map时算法不好，因为每移动一步就要刷新整个地图，能否实现只是刷新局部
 		drawStackedMap(g);
 	}

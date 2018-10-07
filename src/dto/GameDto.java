@@ -2,7 +2,6 @@ package dto;
 
 import java.awt.Point;
 import java.util.List;
-
 import entity.DropType;
 
 
@@ -65,7 +64,43 @@ public class GameDto {
 		return false;	
 	}
 	
+	/**
+	 * 判断是否可以进行左移
+	 * @return
+	 */
+	public boolean isCanMoveLeft() {		
+		Point[] ps=this.dropType.getActPoints();
+		for(int i=0;i<ps.length;i++) {			
+			if(ps[i].x-1<0||this.stackedMap[ps[i].x-1][ps[i].y]) return false;				
+		}
+		return true;	
+	}
 	
+	/**
+	 * 判断是否可以进行右移
+	 * @return
+	 */
+	public boolean isCanMoveRight() {
+		Point[] ps=this.dropType.getActPoints();
+		for(int i=0;i<ps.length;i++) {			
+			if(ps[i].x+1>17||this.stackedMap[ps[i].x+1][ps[i].y]) return false;				
+		}
+		return true;	
+	}
+	
+	/**
+	 * 判断是否可以旋转
+	 * @return
+	 */
+	public boolean isCanRotate() {
+		Point[] ps=this.dropType.getActPoints();
+		for (int i = 0; i < ps.length; i++) {
+			int pX=ps[0].y+ps[0].x-ps[i].y;
+			int pY=ps[0].y-ps[0].x+ps[i].x;			
+			if(pX<0||pX>9||pY<0||pY>17||this.stackedMap[pX][pY]) return false;
+		}
+		return true;
+	}	
 	
 	
 	public List<Player> getDbRecode() {
