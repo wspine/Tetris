@@ -22,19 +22,24 @@ public class DropType {
 
 	public Point[] getActPoints() {
 		return actPoints;
-	}	
+	}
 	
+	public int getTypeCode() {
+		return typeCode;
+	}
+
 	/**
 	 * 随机选择下落的类型
 	 */
 	public void chooseDropType() {		
 		Random random=new Random();		
-		typeCode=random.nextInt(7);	
+		typeCode=random.nextInt(7);
+		
 		List<Integer> list=dropTypeData.get(typeCode);
 		
 		actPoints=new Point[4];		
 		for(int i=0;i<actPoints.length;i++) {
-			actPoints[i]=new Point(list.get(i<<1),list.get(i<<1+1));			
+			actPoints[i]=new Point(list.get(i<<1),list.get((i<<1)+1));			
 		}		
 	}
 	
@@ -42,6 +47,7 @@ public class DropType {
 	 * 顺时针旋转90度角
 	 */
 	public void rotate() {
+		if(this.typeCode==6) return;
 		if(isCanRotate()) {
 			for (int i = 0; i < actPoints.length; i++) {
 				int pX=actPoints[0].y+actPoints[0].x-actPoints[i].y;
@@ -111,16 +117,5 @@ public class DropType {
 			if(pX<0||pX>9||pY<0||pY>17) return false;
 		}
 		return true;
-	}
-	
-	
-	public boolean isReachBottom() {
-		for(int i=0;i<actPoints.length;i++) {			
-			//TODO  触碰到地图是也不能移动
-			if(actPoints[i].y+1>17) return true;				
-		}
-		return false;	
-	}
-	
-	
+	}	
 }

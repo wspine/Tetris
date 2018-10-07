@@ -51,6 +51,22 @@ public class GameDto {
 		}
 	}
 	
+
+	/**
+	 * 判断是否可以进行下落操作
+	 * @return
+	 */
+	public boolean isReachBottom() {
+		Point[] ps=this.dropType.getActPoints();
+		for(int i=0;i<ps.length;i++) {			
+			//TODO  触碰到地图是也不能移动
+			if(ps[i].y+1>17||this.stackedMap[ps[i].x][ps[i].y+1]) return true;			
+		}
+		return false;	
+	}
+	
+	
+	
 	
 	public List<Player> getDbRecode() {
 		return dbRecode;
