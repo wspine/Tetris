@@ -27,11 +27,11 @@ public class GameService {
 	}
 
 	public void keyDown() {
-		//鍒ゆ柇鑳藉惁杩涜涓嬬Щ
+		//�ж��Ƿ����䵽�ײ�
 		if(!this.dto.isReachBottom()) {
 			this.dto.getDropType().moveDown();
 		}else {
-			//灏嗘姷杈句笅杈圭晫鐨勬柟鍧楀浐鍖栧埌鍫嗙Н鍦板浘涓婇潰
+			
 			this.dto.dropTypeBindInMap();
 			//			
 			this.dto.getDropType().chooseDropType(this.dto.getNext());
@@ -39,12 +39,12 @@ public class GameService {
 			this.dto.setNext(random.nextInt(7));
 			
 		}		
-		//TODO 鍒ゆ柇鏄惁鍙互杩涜娑堣
-		//TODO 娑堣鎿嶄綔
-		//TODO 绠楀垎鎿嶄綔
-		//TODO 鍒ゆ柇鏄惁鍙互杩涜鍗囩骇
-		//TODO 鍗囩骇
-		//鍒锋柊涓�涓柊鐨勬柟鍧楃被鍨�
+		//TODO
+		//TODO 
+		//TODO 
+		//TODO 
+		//TODO 
+		//
 				
 	}
 

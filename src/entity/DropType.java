@@ -44,7 +44,7 @@ public class DropType {
 	 * Ë³Ê±ÕëÐý×ª90¶È½Ç
 	 */
 	public void rotate() {
-		if(this.typeCode==6) return;		
+		if(this.typeCode==4) return;		
 		for (int i = 0; i < actPoints.length; i++) {
 			int pX=actPoints[0].y+actPoints[0].x-actPoints[i].y;
 			int pY=actPoints[0].y-actPoints[0].x+actPoints[i].x;			
